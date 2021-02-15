@@ -1,0 +1,610 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Ikst.KeyboardHook</name>
+    </assembly>
+    <members>
+        <member name="T:Ikst.KeyboardHook.KeyboardHook">
+            <summary>
+            ローレベルグローバルキーフック
+            </summary>
+        </member>
+        <member name="T:Ikst.KeyboardHook.KeyboardHook.KeyboardHookHandler">
+            <summary>
+            キーフックプロシージャのデリゲート
+            </summary>
+            <param name="nCode">フックコード</param>
+            <param name="wParam">仮想キーコード</param>
+            <param name="lParam">キーストロークメッセージ</param>
+            <returns>ハンドル</returns>
+        </member>
+        <member name="T:Ikst.KeyboardHook.KeyboardHook.KeyboardHookCallback">
+            <summary>
+            キーボードフックイベントのデリゲート
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="E:Ikst.KeyboardHook.KeyboardHook.KeyDown">
+            <summary>キーを押下した時のイベント</summary>
+        </member>
+        <member name="E:Ikst.KeyboardHook.KeyboardHook.KeyUp">
+            <summary>キーを離した時のイベント</summary>
+        </member>
+        <member name="F:Ikst.KeyboardHook.KeyboardHook.hookHandler">
+            <summary>キーフックのコールバック処理を保持する</summary>
+        </member>
+        <member name="F:Ikst.KeyboardHook.KeyboardHook.hookID">
+            <summary>フックプロシージャのハンドル</summary>
+        </member>
+        <member name="F:Ikst.KeyboardHook.KeyboardHook.downKeyList">
+            <summary>押下されているキーのリスト</summary>
+        </member>
+        <member name="P:Ikst.KeyboardHook.KeyboardHook.IsStarted">
+            <summary>開始状態</summary>
+        </member>
+        <member name="M:Ikst.KeyboardHook.KeyboardHook.Start">
+            <summary>
+            キーフック開始
+            </summary>
+        </member>
+        <member name="M:Ikst.KeyboardHook.KeyboardHook.Stop">
+            <summary>
+            キーフック終了
+            </summary>
+        </member>
+        <member name="M:Ikst.KeyboardHook.KeyboardHook.HookFunc(System.Int32,System.IntPtr,System.IntPtr)">
+            <summary>
+            キーフックプロシージャ
+            </summary>
+            <param name="nCode">フックコード</param>
+            <param name="wParam">仮想キーコード</param>
+            <param name="lParam">キーストロークメッセージ</param>
+            <returns>ハンドル</returns>
+        </member>
+        <member name="M:Ikst.KeyboardHook.KeyboardHook.SetHook(Ikst.KeyboardHook.KeyboardHook.KeyboardHookHandler)">
+            <summary>
+            キーフックをフックチェーン内に登録する
+            </summary>
+            <param name="proc">フックプロシージャ</param>
+            <returns>フックプロシージャのハンドル</returns>a
+        </member>
+        <member name="M:Ikst.KeyboardHook.KeyboardHook.Finalize">
+            <summary>
+            デストラクタ
+            </summary>
+        </member>
+        <member name="T:Ikst.KeyboardHook.KeyboardHookEventArgs">
+            <summary>
+            キーフックイベントパラメータ
+            </summary>
+        </member>
+        <member name="P:Ikst.KeyboardHook.KeyboardHookEventArgs.Key">
+            <summary>入力されたキー</summary>
+        </member>
+        <member name="P:Ikst.KeyboardHook.KeyboardHookEventArgs.PushedKeyList">
+            <summary>押されている(KeyDown中)キーリスト</summary>
+        </member>
+        <member name="T:Ikst.KeyboardHook.VirtualKeys">
+            <summary>
+            仮想キー
+            </summary>
+        </member>
+        <member name="F:Ikst.KeyboardHook.VirtualKeys.LBUTTON">
+            <summary>Left mouse button</summary>
+        </member>
+        <member name="F:Ikst.KeyboardHook.VirtualKeys.RBUTTON">
+            <summary>Right mouse button</summary>
+        </member>
+        <member name="F:Ikst.KeyboardHook.VirtualKeys.CANCEL">
+            <summary>Control-break processing</summary>
+        </member>
+        <member name="F:Ikst.KeyboardHook.VirtualKeys.MBUTTON">
+            <summary>Middle mouse button (three-button mouse)</summary>
+        </member>
+        <member name="F:Ikst.KeyboardHook.VirtualKeys.XBUTTON1">
+            <summary>Windows 2000/XP: X1 mouse button</summary>
+        </member>
+        <member name="F:Ikst.KeyboardHook.VirtualKeys.XBUTTON2">
+            <summary>Windows 2000/XP: X2 mouse button</summary>
+        </member>
+        <member name="F:Ikst.KeyboardHook.VirtualKeys.BACK">
+            <summary>BACKSPACE key</summary>
+        </member>
+        <member name="F:Ikst.KeyboardHook.VirtualKeys.TAB">
+            <summary>TAB key</summary>
+        </member>
+        <member name="F:Ikst.KeyboardHook.VirtualKeys.CLEAR">
+            <summary>CLEAR key</summary>
+        </member>
+        <member name="F:Ikst.KeyboardHook.VirtualKeys.RETURN">
+            <summary>ENTER key</summary>
+        </member>
+        <member name="F:Ikst.KeyboardHook.VirtualKeys.SHIFT">
+            <summary>SHIFT key</summary>
+        </member>
+        <member name="F:Ikst.KeyboardHook.VirtualKeys.CONTROL">
+            <summary>CTRL key</summary>
+        </member>
+        <member name="F:Ikst.KeyboardHook.VirtualKeys.MENU">
+            <summary>ALT key</summary>
+        </member>
+        <member name="F:Ikst.KeyboardHook.VirtualKeys.PAUSE">
+            <summary>PAUSE key</summary>
+        </member>
+        <member name="F:Ikst.KeyboardHook.VirtualKeys.CAPITAL">
+            <summary>CAPS LOCK key</summary>
+        </member>
+        <member name="F:Ikst.KeyboardHook.VirtualKeys.KANA">
+            <summary>Input Method Editor (IME) Kana mode</summary>
+        </member>
+        <member name="F:Ikst.KeyboardHook.VirtualKeys.HANGUL">
+            <summary>IME Hangul mode</summary>
+        </member>
+        <member name="F:Ikst.KeyboardHook.VirtualKeys.JUNJA">
+            <summary>IME Junja mode</summary>
+        </member>
+        <member name="F:Ikst.KeyboardHook.VirtualKeys.FINAL">
+            <summary>IME final mode</summary>
+        </member>
+        <member name="F:Ikst.KeyboardHook.VirtualKeys.HANJA">
+            <summary>IME Hanja mode</summary>
+        </member>
+        <member name="F:Ikst.KeyboardHook.VirtualKeys.KANJI">
+            <summary>IME Kanji mode</summary>
+        </member>
+        <member name="F:Ikst.KeyboardHook.VirtualKeys.ESCAPE">
+            <summary>ESC key</summary>
+        </member>
+        <member name="F:Ikst.KeyboardHook.VirtualKeys.CONVERT">
+            <summary>IME convert</summary>
+        </member>
+        <member name="F:Ikst.KeyboardHook.VirtualKeys.NONCONVERT">
+            <summary>IME nonconvert</summary>
+        </member>
+        <member name="F:Ikst.KeyboardHook.VirtualKeys.ACCEPT">
+            <summary>IME accept</summary>
+        </member>
+        <member name="F:Ikst.KeyboardHook.VirtualKeys.MODECHANGE">
+            <summary>IME mode change request</summary>
+        </member>
+        <member name="F:Ikst.KeyboardHook.VirtualKeys.SPACE">
+            <summary>SPACEBAR</summary>
+        </member>
+        <member name="F:Ikst.KeyboardHook.VirtualKeys.PRIOR">
+            <summary>PAGE UP key</summary>
+        </member>
+        <member name="F:Ikst.KeyboardHook.VirtualKeys.NEXT">
+            <summary>PAGE DOWN key</summary>
+        </member>
+        <member name="F:Ikst.KeyboardHook.VirtualKeys.END">
+            <summary>END key</summary>
+        </member>
+        <member name="F:Ikst.KeyboardHook.VirtualKeys.HOME">
+            <summary>HOME key</summary>
+        </member>
+        <member name="F:Ikst.KeyboardHook.VirtualKeys.LEFT">
+            <summary>LEFT ARROW key</summary>
+        </member>
+        <member name="F:Ikst.KeyboardHook.VirtualKeys.UP">
+            <summary>UP ARROW key</summary>
+        </member>
+        <member name="F:Ikst.KeyboardHook.VirtualKeys.RIGHT">
+            <summary>RIGHT ARROW key</summary>
+        </member>
+        <member name="F:Ikst.KeyboardHook.VirtualKeys.DOWN">
+            <summary>DOWN ARROW key</summary>
+        </member>
+        <member name="F:Ikst.KeyboardHook.VirtualKeys.SELECT">
+            <summary>SELECT key</summary>
+        </member>
+        <member name="F:Ikst.KeyboardHook.VirtualKeys.PRINT">
+            <summary>PRINT key</summary>
+        </member>
+        <member name="F:Ikst.KeyboardHook.VirtualKeys.EXECUTE">
+            <summary>EXECUTE key</summary>
+        </member>
+        <member name="F:Ikst.KeyboardHook.VirtualKeys.SNAPSHOT">
+            <summary>PRINT SCREEN key</summary>
+        </member>
+        <member name="F:Ikst.KeyboardHook.VirtualKeys.INSERT">
+            <summary>INS key</summary>
+        </member>
+        <member name="F:Ikst.KeyboardHook.VirtualKeys.DELETE">
+            <summary>DEL key</summary>
+        </member>
+        <member name="F:Ikst.KeyboardHook.VirtualKeys.HELP">
+            <summary>HELP key</summary>
+        </member>
+        <member name="F:Ikst.KeyboardHook.VirtualKeys.KEY_0">
+            <summary>0 key</summary>
+        </member>
+        <member name="F:Ikst.KeyboardHook.VirtualKeys.KEY_1">
+            <summary>1 key</summary>
+        </member>
+        <member name="F:Ikst.KeyboardHook.VirtualKeys.KEY_2">
+            <summary>2 key</summary>
+        </member>
+        <member name="F:Ikst.KeyboardHook.VirtualKeys.KEY_3">
+            <summary>3 key</summary>
+        </member>
+        <member name="F:Ikst.KeyboardHook.VirtualKeys.KEY_4">
+            <summary>4 key</summary>
+        </member>
+        <member name="F:Ikst.KeyboardHook.VirtualKeys.KEY_5">
+            <summary>5 key</summary>
+        </member>
+        <member name="F:Ikst.KeyboardHook.VirtualKeys.KEY_6">
+            <summary>6 key</summary>
+        </member>
+        <member name="F:Ikst.KeyboardHook.VirtualKeys.KEY_7">
+            <summary>7 key</summary>
+        </member>
+        <member name="F:Ikst.KeyboardHook.VirtualKeys.KEY_8">
+            <summary>8 key</summary>
+        </member>
+        <member name="F:Ikst.KeyboardHook.VirtualKeys.KEY_9">
+            <summary>9 key</summary>
+        </member>
+        <member name="F:Ikst.KeyboardHook.VirtualKeys.KEY_A">
+            <summary>A key</summary>
+        </member>
+        <member name="F:Ikst.KeyboardHook.VirtualKeys.KEY_B">
+            <summary>B key</summary>
+        </member>
+        <member name="F:Ikst.KeyboardHook.VirtualKeys.KEY_C">
+            <summary>C key</summary>
+        </member>
+        <member name="F:Ikst.KeyboardHook.VirtualKeys.KEY_D">
+            <summary>D key</summary>
+        </member>
+        <member name="F:Ikst.KeyboardHook.VirtualKeys.KEY_E">
+            <summary>E key</summary>
+        </member>
+        <member name="F:Ikst.KeyboardHook.VirtualKeys.KEY_F">
+            <summary>F key</summary>
+        </member>
+        <member name="F:Ikst.KeyboardHook.VirtualKeys.KEY_G">
+            <summary>G key</summary>
+        </member>
+        <member name="F:Ikst.KeyboardHook.VirtualKeys.KEY_H">
+            <summary>H key</summary>
+        </member>
+        <member name="F:Ikst.KeyboardHook.VirtualKeys.KEY_I">
+            <summary>I key</summary>
+        </member>
+        <member name="F:Ikst.KeyboardHook.VirtualKeys.KEY_J">
+            <summary>J key</summary>
+        </member>
+        <member name="F:Ikst.KeyboardHook.VirtualKeys.KEY_K">
+            <summary>K key</summary>
+        </member>
+        <member name="F:Ikst.KeyboardHook.VirtualKeys.KEY_L">
+            <summary>L key</summary>
+        </member>
+        <member name="F:Ikst.KeyboardHook.VirtualKeys.KEY_M">
+            <summary>M key</summary>
+        </member>
+        <member name="F:Ikst.KeyboardHook.VirtualKeys.KEY_N">
+            <summary>N key</summary>
+        </member>
+        <member name="F:Ikst.KeyboardHook.VirtualKeys.KEY_O">
+            <summary>O key</summary>
+        </member>
+        <member name="F:Ikst.KeyboardHook.VirtualKeys.KEY_P">
+            <summary>P key</summary>
+        </member>
+        <member name="F:Ikst.KeyboardHook.VirtualKeys.KEY_Q">
+            <summary>Q key</summary>
+        </member>
+        <member name="F:Ikst.KeyboardHook.VirtualKeys.KEY_R">
+            <summary>R key</summary>
+        </member>
+        <member name="F:Ikst.KeyboardHook.VirtualKeys.KEY_S">
+            <summary>S key</summary>
+        </member>
+        <member name="F:Ikst.KeyboardHook.VirtualKeys.KEY_T">
+            <summary>T key</summary>
+        </member>
+        <member name="F:Ikst.KeyboardHook.VirtualKeys.KEY_U">
+            <summary>U key</summary>
+        </member>
+        <member name="F:Ikst.KeyboardHook.VirtualKeys.KEY_V">
+            <summary>V key</summary>
+        </member>
+        <member name="F:Ikst.KeyboardHook.VirtualKeys.KEY_W">
+            <summary>W key</summary>
+        </member>
+        <member name="F:Ikst.KeyboardHook.VirtualKeys.KEY_X">
+            <summary>X key</summary>
+        </member>
+        <member name="F:Ikst.KeyboardHook.VirtualKeys.KEY_Y">
+            <summary>Y key</summary>
+        </member>
+        <member name="F:Ikst.KeyboardHook.VirtualKeys.KEY_Z">
+            <summary>Z key</summary>
+        </member>
+        <member name="F:Ikst.KeyboardHook.VirtualKeys.LWIN">
+            <summary>Left Windows key (Microsoft Natural keyboard)</summary>
+        </member>
+        <member name="F:Ikst.KeyboardHook.VirtualKeys.RWIN">
+            <summary>Right Windows key (Natural keyboard)</summary>
+        </member>
+        <member name="F:Ikst.KeyboardHook.VirtualKeys.APPS">
+            <summary>Applications key (Natural keyboard)</summary>
+        </member>
+        <member name="F:Ikst.KeyboardHook.VirtualKeys.SLEEP">
+            <summary>Computer Sleep key</summary>
+        </member>
+        <member name="F:Ikst.KeyboardHook.VirtualKeys.NUMPAD0">
+            <summary>Numeric keypad 0 key</summary>
+        </member>
+        <member name="F:Ikst.KeyboardHook.VirtualKeys.NUMPAD1">
+            <summary>Numeric keypad 1 key</summary>
+        </member>
+        <member name="F:Ikst.KeyboardHook.VirtualKeys.NUMPAD2">
+            <summary>Numeric keypad 2 key</summary>
+        </member>
+        <member name="F:Ikst.KeyboardHook.VirtualKeys.NUMPAD3">
+            <summary>Numeric keypad 3 key</summary>
+        </member>
+        <member name="F:Ikst.KeyboardHook.VirtualKeys.NUMPAD4">
+            <summary>Numeric keypad 4 key</summary>
+        </member>
+        <member name="F:Ikst.KeyboardHook.VirtualKeys.NUMPAD5">
+            <summary>Numeric keypad 5 key</summary>
+        </member>
+        <member name="F:Ikst.KeyboardHook.VirtualKeys.NUMPAD6">
+            <summary>Numeric keypad 6 key</summary>
+        </member>
+        <member name="F:Ikst.KeyboardHook.VirtualKeys.NUMPAD7">
+            <summary>Numeric keypad 7 key</summary>
+        </member>
+        <member name="F:Ikst.KeyboardHook.VirtualKeys.NUMPAD8">
+            <summary>Numeric keypad 8 key</summary>
+        </member>
+        <member name="F:Ikst.KeyboardHook.VirtualKeys.NUMPAD9">
+            <summary>Numeric keypad 9 key</summary>
+        </member>
+        <member name="F:Ikst.KeyboardHook.VirtualKeys.MULTIPLY">
+            <summary>Multiply key</summary>
+        </member>
+        <member name="F:Ikst.KeyboardHook.VirtualKeys.ADD">
+            <summary>Add key</summary>
+        </member>
+        <member name="F:Ikst.KeyboardHook.VirtualKeys.SEPARATOR">
+            <summary>Separator key</summary>
+        </member>
+        <member name="F:Ikst.KeyboardHook.VirtualKeys.SUBTRACT">
+            <summary>Subtract key</summary>
+        </member>
+        <member name="F:Ikst.KeyboardHook.VirtualKeys.DECIMAL">
+            <summary>Decimal key</summary>
+        </member>
+        <member name="F:Ikst.KeyboardHook.VirtualKeys.DIVIDE">
+            <summary>Divide key</summary>
+        </member>
+        <member name="F:Ikst.KeyboardHook.VirtualKeys.F1">
+            <summary>F1 key</summary>
+        </member>
+        <member name="F:Ikst.KeyboardHook.VirtualKeys.F2">
+            <summary>F2 key</summary>
+        </member>
+        <member name="F:Ikst.KeyboardHook.VirtualKeys.F3">
+            <summary>F3 key</summary>
+        </member>
+        <member name="F:Ikst.KeyboardHook.VirtualKeys.F4">
+            <summary>F4 key</summary>
+        </member>
+        <member name="F:Ikst.KeyboardHook.VirtualKeys.F5">
+            <summary>F5 key</summary>
+        </member>
+        <member name="F:Ikst.KeyboardHook.VirtualKeys.F6">
+            <summary>F6 key</summary>
+        </member>
+        <member name="F:Ikst.KeyboardHook.VirtualKeys.F7">
+            <summary>F7 key</summary>
+        </member>
+        <member name="F:Ikst.KeyboardHook.VirtualKeys.F8">
+            <summary>F8 key</summary>
+        </member>
+        <member name="F:Ikst.KeyboardHook.VirtualKeys.F9">
+            <summary>F9 key</summary>
+        </member>
+        <member name="F:Ikst.KeyboardHook.VirtualKeys.F10">
+            <summary>F10 key</summary>
+        </member>
+        <member name="F:Ikst.KeyboardHook.VirtualKeys.F11">
+            <summary>F11 key</summary>
+        </member>
+        <member name="F:Ikst.KeyboardHook.VirtualKeys.F12">
+            <summary>F12 key</summary>
+        </member>
+        <member name="F:Ikst.KeyboardHook.VirtualKeys.F13">
+            <summary>F13 key</summary>
+        </member>
+        <member name="F:Ikst.KeyboardHook.VirtualKeys.F14">
+            <summary>F14 key</summary>
+        </member>
+        <member name="F:Ikst.KeyboardHook.VirtualKeys.F15">
+            <summary>F15 key</summary>
+        </member>
+        <member name="F:Ikst.KeyboardHook.VirtualKeys.F16">
+            <summary>F16 key</summary>
+        </member>
+        <member name="F:Ikst.KeyboardHook.VirtualKeys.F17">
+            <summary>F17 key  </summary>
+        </member>
+        <member name="F:Ikst.KeyboardHook.VirtualKeys.F18">
+            <summary>F18 key  </summary>
+        </member>
+        <member name="F:Ikst.KeyboardHook.VirtualKeys.F19">
+            <summary>F19 key  </summary>
+        </member>
+        <member name="F:Ikst.KeyboardHook.VirtualKeys.F20">
+            <summary>F20 key  </summary>
+        </member>
+        <member name="F:Ikst.KeyboardHook.VirtualKeys.F21">
+            <summary>F21 key  </summary>
+        </member>
+        <member name="F:Ikst.KeyboardHook.VirtualKeys.F22">
+            <summary>F22 key, (PPC only) Key used to lock device.</summary>
+        </member>
+        <member name="F:Ikst.KeyboardHook.VirtualKeys.F23">
+            <summary>F23 key  </summary>
+        </member>
+        <member name="F:Ikst.KeyboardHook.VirtualKeys.F24">
+            <summary>F24 key  </summary>
+        </member>
+        <member name="F:Ikst.KeyboardHook.VirtualKeys.NUMLOCK">
+            <summary>NUM LOCK key</summary>
+        </member>
+        <member name="F:Ikst.KeyboardHook.VirtualKeys.SCROLL">
+            <summary>SCROLL LOCK key</summary>
+        </member>
+        <member name="F:Ikst.KeyboardHook.VirtualKeys.LSHIFT">
+            <summary>Left SHIFT key</summary>
+        </member>
+        <member name="F:Ikst.KeyboardHook.VirtualKeys.RSHIFT">
+            <summary>Right SHIFT key</summary>
+        </member>
+        <member name="F:Ikst.KeyboardHook.VirtualKeys.LCONTROL">
+            <summary>Left CONTROL key</summary>
+        </member>
+        <member name="F:Ikst.KeyboardHook.VirtualKeys.RCONTROL">
+            <summary>Right CONTROL key</summary>
+        </member>
+        <member name="F:Ikst.KeyboardHook.VirtualKeys.LMENU">
+            <summary>Left MENU key</summary>
+        </member>
+        <member name="F:Ikst.KeyboardHook.VirtualKeys.RMENU">
+            <summary>Right MENU key</summary>
+        </member>
+        <member name="F:Ikst.KeyboardHook.VirtualKeys.BROWSER_BACK">
+            <summary>// Windows 2000/XP: Browser Back key</summary>
+        </member>
+        <member name="F:Ikst.KeyboardHook.VirtualKeys.BROWSER_FORWARD">
+            <summary>Windows 2000/XP: Browser Forward key</summary>
+        </member>
+        <member name="F:Ikst.KeyboardHook.VirtualKeys.BROWSER_REFRESH">
+            <summary>Windows 2000/XP: Browser Refresh key</summary>
+        </member>
+        <member name="F:Ikst.KeyboardHook.VirtualKeys.BROWSER_STOP">
+            <summary>Windows 2000/XP: Browser Stop key</summary>
+        </member>
+        <member name="F:Ikst.KeyboardHook.VirtualKeys.BROWSER_SEARCH">
+            <summary>Windows 2000/XP: Browser Search key</summary>
+        </member>
+        <member name="F:Ikst.KeyboardHook.VirtualKeys.BROWSER_FAVORITES">
+            <summary>Windows 2000/XP: Browser Favorites key</summary>
+        </member>
+        <member name="F:Ikst.KeyboardHook.VirtualKeys.BROWSER_HOME">
+            <summary>Windows 2000/XP: Browser Start and Home key</summary>
+        </member>
+        <member name="F:Ikst.KeyboardHook.VirtualKeys.VOLUME_MUTE">
+            <summary>Windows 2000/XP: Volume Mute key</summary>
+        </member>
+        <member name="F:Ikst.KeyboardHook.VirtualKeys.VOLUME_DOWN">
+            <summary>Windows 2000/XP: Volume Down key</summary>
+        </member>
+        <member name="F:Ikst.KeyboardHook.VirtualKeys.VOLUME_UP">
+            <summary>Windows 2000/XP: Volume Up key</summary>
+        </member>
+        <member name="F:Ikst.KeyboardHook.VirtualKeys.MEDIA_NEXT_TRACK">
+            <summary>Windows 2000/XP: Next Track key</summary>
+        </member>
+        <member name="F:Ikst.KeyboardHook.VirtualKeys.MEDIA_PREV_TRACK">
+            <summary>Windows 2000/XP: Previous Track key</summary>
+        </member>
+        <member name="F:Ikst.KeyboardHook.VirtualKeys.MEDIA_STOP">
+            <summary>Windows 2000/XP: Stop Media key</summary>
+        </member>
+        <member name="F:Ikst.KeyboardHook.VirtualKeys.MEDIA_PLAY_PAUSE">
+            <summary>Windows 2000/XP: Play/Pause Media key</summary>
+        </member>
+        <member name="F:Ikst.KeyboardHook.VirtualKeys.LAUNCH_MAIL">
+            <summary>Windows 2000/XP: Start Mail key</summary>
+        </member>
+        <member name="F:Ikst.KeyboardHook.VirtualKeys.LAUNCH_MEDIA_SELECT">
+            <summary>Windows 2000/XP: Select Media key</summary>
+        </member>
+        <member name="F:Ikst.KeyboardHook.VirtualKeys.LAUNCH_APP1">
+            <summary>Windows 2000/XP: Start Application 1 key</summary>
+        </member>
+        <member name="F:Ikst.KeyboardHook.VirtualKeys.LAUNCH_APP2">
+            <summary>Windows 2000/XP: Start Application 2 key</summary>
+        </member>
+        <member name="F:Ikst.KeyboardHook.VirtualKeys.OEM_1">
+            <summary>Used for miscellaneous characters; it can vary by keyboard.</summary>
+        </member>
+        <member name="F:Ikst.KeyboardHook.VirtualKeys.OEM_PLUS">
+            <summary>Windows 2000/XP: For any country/region, the '+' key</summary>
+        </member>
+        <member name="F:Ikst.KeyboardHook.VirtualKeys.OEM_COMMA">
+            <summary>Windows 2000/XP: For any country/region, the ',' key</summary>
+        </member>
+        <member name="F:Ikst.KeyboardHook.VirtualKeys.OEM_MINUS">
+            <summary>Windows 2000/XP: For any country/region, the '-' key</summary>
+        </member>
+        <member name="F:Ikst.KeyboardHook.VirtualKeys.OEM_PERIOD">
+            <summary>Windows 2000/XP: For any country/region, the '.' key</summary>
+        </member>
+        <member name="F:Ikst.KeyboardHook.VirtualKeys.OEM_2">
+            <summary>Used for miscellaneous characters; it can vary by keyboard.</summary>
+        </member>
+        <member name="F:Ikst.KeyboardHook.VirtualKeys.OEM_3">
+            <summary>Used for miscellaneous characters; it can vary by keyboard.</summary>
+        </member>
+        <member name="F:Ikst.KeyboardHook.VirtualKeys.OEM_4">
+            <summary>Used for miscellaneous characters; it can vary by keyboard.</summary>
+        </member>
+        <member name="F:Ikst.KeyboardHook.VirtualKeys.OEM_5">
+            <summary>Used for miscellaneous characters; it can vary by keyboard.</summary>
+        </member>
+        <member name="F:Ikst.KeyboardHook.VirtualKeys.OEM_6">
+            <summary>Used for miscellaneous characters; it can vary by keyboard.</summary>
+        </member>
+        <member name="F:Ikst.KeyboardHook.VirtualKeys.OEM_7">
+            <summary>Used for miscellaneous characters; it can vary by keyboard.</summary>
+        </member>
+        <member name="F:Ikst.KeyboardHook.VirtualKeys.OEM_8">
+            <summary>Used for miscellaneous characters; it can vary by keyboard.</summary>
+        </member>
+        <member name="F:Ikst.KeyboardHook.VirtualKeys.OEM_102">
+            <summary>Windows 2000/XP: Either the angle bracket key or the backslash key on the RT 102-key keyboard</summary>
+        </member>
+        <member name="F:Ikst.KeyboardHook.VirtualKeys.PROCESSKEY">
+            <summary>Windows 95/98/Me, Windows NT 4.0, Windows 2000/XP: IME PROCESS key</summary>
+        </member>
+        <member name="F:Ikst.KeyboardHook.VirtualKeys.PACKET">
+            <summary>Windows 2000/XP: Used to pass Unicode characters as if they were keystrokes. The VK_PACKET key is the low word of a 32-bit Virtual Key value used for non-keyboard input methods. For more information, see Remark in KEYBDINPUT, SendInput, WM_KEYDOWN, and WM_KEYUP</summary>
+        </member>
+        <member name="F:Ikst.KeyboardHook.VirtualKeys.ATTN">
+            <summary>Attn key</summary>
+        </member>
+        <member name="F:Ikst.KeyboardHook.VirtualKeys.CRSEL">
+            <summary>CrSel key</summary>
+        </member>
+        <member name="F:Ikst.KeyboardHook.VirtualKeys.EXSEL">
+            <summary>ExSel key</summary>
+        </member>
+        <member name="F:Ikst.KeyboardHook.VirtualKeys.EREOF">
+            <summary>Erase EOF key</summary>
+        </member>
+        <member name="F:Ikst.KeyboardHook.VirtualKeys.PLAY">
+            <summary>Play key</summary>
+        </member>
+        <member name="F:Ikst.KeyboardHook.VirtualKeys.ZOOM">
+            <summary>Zoom key</summary>
+        </member>
+        <member name="F:Ikst.KeyboardHook.VirtualKeys.NONAME">
+            <summary>Reserved</summary>
+        </member>
+        <member name="F:Ikst.KeyboardHook.VirtualKeys.PA1">
+            <summary>PA1 key</summary>
+        </member>
+        <member name="F:Ikst.KeyboardHook.VirtualKeys.OEM_CLEAR">
+            <summary>Clear key</summary>
+        </member>
+    </members>
+</doc>
