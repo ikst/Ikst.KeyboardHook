@@ -2,20 +2,21 @@
 
   <PropertyGroup>
     <TargetFrameworks>netcoreapp3.1;net5.0</TargetFrameworks>
-    <Version>0.0.3</Version>
+    <Version>1.0.0</Version>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Authors>ikst</Authors>
     <Description>This is a global keyboard hook library for .net windows application.</Description>
-    <Copyright>MIT</Copyright>
+    <Copyright></Copyright>
     <RepositoryUrl>https://github.com/ikst/Ikst.KeyboardHook</RepositoryUrl>
     <PackageReleaseNotes>Please check the following.
 https://github.com/ikst/Ikst.KeyboardHook/blob/master/README.md</PackageReleaseNotes>
     <PackageTags>global keyboard hook</PackageTags>
     <RepositoryType>git</RepositoryType>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
-    <DocumentationFile>C:\Users\root\Source\repos\Ikst.KeyboardHook\Ikst.KeyboardHook\Ikst.KeyboardHook.xml</DocumentationFile>
+    <DocumentationFile>C:\Users\oihso\Source\Repos\Ikst.KeyboardHook\Ikst.KeyboardHook\Ikst.KeyboardHook.xml</DocumentationFile>
   </PropertyGroup>
 
 </Project>
